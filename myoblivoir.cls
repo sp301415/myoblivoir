@@ -1,15 +1,21 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{myoblivoir}[2022/04/08 My Custom Version of oblivoir]
+\ProvidesClass{myoblivoir}[2022/04/08 My Custom Extension of oblivoir]
 
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{oblivoir}}
 \ProcessOptions\relax
 \LoadClass[11pt, a4paper]{oblivoir}
-\hangulpunctuations=0
 
 \makeatletter
 
+% LuaLaTeX-specific includes
+\RequirePackage{iftex}
+\ifluatex
+\RequirePackage{luacode}
+\hangulpunctuations=0
+\fi
+
 % Math Packages
-\usepackage{amsmath, amssymb, amsthm, mathtools, tikz, pgfplots}
+\RequirePackage{amsmath, amssymb, amsthm, mathtools, tikz, pgfplots}
 \pgfplotsset{compat=newest}
 \allowdisplaybreaks{}
 
@@ -31,7 +37,7 @@
 % Misc Packages
 \RequirePackage[shortlabels]{enumitem}
 \RequirePackage[cache=false]{minted}
-\RequirePackage{hyperref, caption, luacode}
+\RequirePackage{hyperref, caption}
 
 % Common Macros
 \newcommand{\ZZ}{\ensuremath{\mathbb{Z}}}
