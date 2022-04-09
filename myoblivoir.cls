@@ -24,9 +24,9 @@
 \newtheorem{lemma}{Lemma}[problem]
 
 % Document Structure
+\RequirePackage{parskip}
 \RequirePackage{fapapersize}
 \usefapapersize{*,*,30mm,30mm,30mm,30mm}
-\setlength\parindent{0pt}
 
 % Table Packages
 \RequirePackage{multirow, longtable, booktabs}
