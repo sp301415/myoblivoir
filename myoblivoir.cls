@@ -28,16 +28,13 @@
 \RequirePackage{fapapersize}
 \usefapapersize{*,*,30mm,30mm,30mm,30mm}
 
-% Table Packages
-\RequirePackage{multirow, longtable, booktabs}
-
 % Graphics Packages
 \RequirePackage{graphicx, float}
 
 % Misc Packages
 \RequirePackage[shortlabels]{enumitem}
 \RequirePackage[cache=false]{minted}
-\RequirePackage{hyperref, caption}
+\RequirePackage{hyperref, caption, tabularray}
 
 % Common Macros
 \newcommand{\ZZ}{\ensuremath{\mathbb{Z}}}
