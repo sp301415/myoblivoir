@@ -19,9 +19,17 @@
 \pgfplotsset{compat=newest}
 \allowdisplaybreaks{}
 
+\@ifclasswith{oblivoir}{chapter}{\newtheorem{theorem}{Theorem}[chapter]}{\newtheorem{theorem}{Theorem}}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem*{corollary}{Corollary}
+
 \theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
 \newtheorem{problem}{문제}
-\newtheorem{lemma}{Lemma}[problem]
+
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
 
 % Document Structure
 \RequirePackage{parskip}
