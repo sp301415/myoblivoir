@@ -31,6 +31,8 @@
 \theoremstyle{remark}
 \newtheorem*{remark}{Remark}
 
+\usetikzlibrary{cd, calc}
+
 % Document Structure
 \RequirePackage{parskip}
 \RequirePackage{fapapersize}
@@ -42,7 +44,35 @@
 % Misc Packages
 \RequirePackage[shortlabels]{enumitem}
 \RequirePackage[cache=false]{minted}
+\setminted{autogobble, breaklines, breakanywhere}
+% https://github.com/gpoore/minted/issues/311
+% todo: get breakaftersymbolpre to work
+\newcommand{\codeinline}[1]{\Verb[breaklines, breakanywhere]{#1}}
+
 \RequirePackage{hyperref, caption, tabularray}
+\DefTblrTemplate{contfoot-text}{default}{}
+\DefTblrTemplate{conthead-text}{default}{}
+\DefTblrTemplate{contfoot}{default}{\UseTblrTemplate{contfoot-text}{default}}
+\DefTblrTemplate{conthead}{default}{\UseTblrTemplate{conthead-text}{default}}
+
+\DefTblrTemplate{caption-tag}{nocaption}{}
+\DefTblrTemplate{caption-sep}{nocaption}{}
+\DefTblrTemplate{caption-text}{nocaption}{}
+\DefTblrTemplate{caption}{nocaption}{
+    \UseTblrTemplate{caption-tag}{nocaption}
+    \UseTblrTemplate{caption-sep}{nocaption}
+    \UseTblrTemplate{caption-text}{nocaption}
+}
+\DefTblrTemplate{capcont}{nocaption}{
+    \UseTblrTemplate{caption-tag}{nocaption}
+    \UseTblrTemplate{caption-sep}{nocaption}
+    \UseTblrTemplate{caption-text}{nocaption}
+}
+
+\newcommand*{\cleanlongtblr}{
+    \SetTblrTemplate{caption}{nocaption}
+    \SetTblrTemplate{capcont}{nocaption}
+}
 
 % Common Macros
 \newcommand{\ZZ}{\ensuremath{\mathbb{Z}}}
