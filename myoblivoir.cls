@@ -34,7 +34,6 @@
 \usetikzlibrary{cd, calc}
 
 % Document Structure
-\RequirePackage{parskip}
 \RequirePackage{fapapersize}
 \usefapapersize{*,*,30mm,30mm,30mm,30mm}
 
