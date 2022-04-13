@@ -1,0 +1,87 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{macros}[2022/04/13 My Frequently Used Macros]
+
+\makeatletter
+
+\newif\if@thmchap
+\@thmchapfalse
+\DeclareOption{chapter}{\@thmchaptrue}
+\DeclareOption*{\PackageWarning{macros}{Unknown ‘\CurrentOption’}}
+\ProcessOptions\relax
+
+% LuaLaTeX-specific includes
+\usepackage{iftex}
+\ifluatex
+    \usepackage{luacode}
+    \hangulpunctuations=0
+\fi
+
+% Math Packages
+\usepackage{amsmath, amssymb, amsthm, mathtools, tikz, pgfplots}
+\pgfplotsset{compat=newest}
+\allowdisplaybreaks{}
+
+\if@thmchap 
+    \newtheorem{theorem}{Theorem}[chapter] 
+\else 
+    \newtheorem{theorem}{Theorem} 
+\fi
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem*{corollary}{Corollary}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{problem}{문제}
+
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+
+\usetikzlibrary{cd, calc}
+
+% Graphics Packages
+\usepackage{graphicx, float}
+
+% Misc Packages
+\usepackage[shortlabels]{enumitem}
+\usepackage[cache=false]{minted}
+\setminted{autogobble, breaklines, breakanywhere}
+% https://github.com/gpoore/minted/issues/311
+% todo: get breakaftersymbolpre to work
+\newcommand{\codeinline}[1]{\Verb[breaklines, breakanywhere]{#1}}
+\usepackage{hyperref}
+
+% Tabularray Settings
+\usepackage{tabularray, caption}
+\UseTblrLibrary{amsmath, booktabs}
+\SetTblrTemplate{foot}{empty}
+% Somehow empty doesn't work :(
+\DefTblrTemplate{conthead-text}{default}{}
+\DefTblrTemplate{conthead}{default}{}
+
+% todo: is making this a theme good idea?
+\NewTblrTheme{nocaption}{\SetTblrTemplate{head}{empty}}
+\NewTblrTheme{nocounter}{
+    \SetTblrTemplate{caption-tag}{empty}
+    \SetTblrTemplate{caption-sep}{empty}
+}
+
+% Common Macros
+\newcommand{\ZZ}{\ensuremath{\mathbb{Z}}}
+\newcommand{\QQ}{\ensuremath{\mathbb{Q}}}
+\newcommand{\RR}{\ensuremath{\mathbb{R}}}
+\newcommand{\CC}{\ensuremath{\mathbb{C}}}
+
+\DeclarePairedDelimiter\abs{\lvert}{\rvert}
+\DeclarePairedDelimiter\norm{\lVert}{\rVert}
+\DeclarePairedDelimiter\braket{\langle}{\rangle}
+
+% Swap * and non-* version of PairedDelimiter
+\let\oldabs\abs
+\def\abs{\@ifstar{\oldabs}{\oldabs*}}
+\let\oldnorm\norm 
+\def\norm{\@ifstar{\oldnorm}{\oldnorm*}}
+\let\oldbraket\braket 
+\def\norm{\@ifstar{\oldbraket}{\oldbraket*}}
+
+\makeatother
