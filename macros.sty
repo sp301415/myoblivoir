@@ -9,7 +9,7 @@
 \DeclareOption*{\PackageWarning{macros}{Unknown ‘\CurrentOption’}}
 \ProcessOptions\relax
 
-% LuaLaTeX-specific includes
+% Engine Specific includes
 \usepackage{iftex}
 \ifluatex
     \usepackage{luacode}
@@ -17,9 +17,11 @@
 
 % Math Packages
 \usepackage{amsmath, amssymb, amsthm, mathtools, tikz, pgfplots}
+\usetikzlibrary{cd, calc}
 \pgfplotsset{compat=newest}
 \allowdisplaybreaks{}
 
+% Theorem Styles
 \@ifundefined{theorem}{
 \if@thmchap 
     \newtheorem{theorem}{Theorem}[chapter] 
@@ -38,8 +40,6 @@
 \theoremstyle{remark}
 \@ifundefined{remark}{\newtheorem*{remark}{Remark}}{}
 
-\usetikzlibrary{cd, calc}
-
 % Graphics Packages
 \usepackage{graphicx, float}
 
@@ -48,8 +48,8 @@
 \usepackage[cache=false]{minted}
 \setminted{autogobble, breaklines, breakanywhere}
 % https://github.com/gpoore/minted/issues/311
-% todo: get breakaftersymbolpre to work
-\providecommand{\codeinline}[1]{\Verb[breaklines, breakanywhere]{#1}}
+% TODO: get breakaftersymbolpre to work
+\providecommand*{\codeinline}[1]{\Verb[breaklines, breakanywhere]{#1}}
 \usepackage{hyperref}
 
 % Tabularray Settings
@@ -60,7 +60,7 @@
 \DefTblrTemplate{conthead-text}{default}{}
 \DefTblrTemplate{conthead}{default}{}
 
-% todo: is making this a theme good idea?
+% TODO: is making this a theme good idea?
 \NewTblrTheme{nocaption}{\SetTblrTemplate{head}{empty}}
 \NewTblrTheme{nocounter}{
     \SetTblrTemplate{caption-tag}{empty}
@@ -68,10 +68,10 @@
 }
 
 % Common Macros
-\providecommand{\ZZ}{\ensuremath{\mathbb{Z}}}
-\providecommand{\QQ}{\ensuremath{\mathbb{Q}}}
-\providecommand{\RR}{\ensuremath{\mathbb{R}}}
-\providecommand{\CC}{\ensuremath{\mathbb{C}}}
+\providecommand*{\ZZ}{\ensuremath{\mathbb{Z}}}
+\providecommand*{\QQ}{\ensuremath{\mathbb{Q}}}
+\providecommand*{\RR}{\ensuremath{\mathbb{R}}}
+\providecommand*{\CC}{\ensuremath{\mathbb{C}}}
 
 \DeclarePairedDelimiter\abs{\lvert}{\rvert}
 \DeclarePairedDelimiter\norm{\lVert}{\rVert}

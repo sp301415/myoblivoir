@@ -12,7 +12,7 @@
 
 \usepackage{iftex}
 \ifluatex
-\hangulpunctuations=0
+    \hangulpunctuations=0
 \fi
 
 \@ifclasswith{oblivoir}{chapter}{
