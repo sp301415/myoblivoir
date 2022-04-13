@@ -20,23 +20,23 @@
 \pgfplotsset{compat=newest}
 \allowdisplaybreaks{}
 
-\ifcsmacro{theorem}{}{
+\@ifundefined{theorem}{
 \if@thmchap 
     \newtheorem{theorem}{Theorem}[chapter] 
 \else
     \newtheorem{theorem}{Theorem} 
 \fi
-}
-\ifcsmacro{lemma}{}{\newtheorem{lemma}[theorem]{Lemma}}
-\ifcsmacro{proposition}{}{\newtheorem{proposition}[theorem]{Proposition}}
-\ifcsmacro{corollary}{}{\newtheorem*{corollary}{Corollary}}
+}{}
+\@ifundefined{lemma}{\newtheorem{lemma}[theorem]{Lemma}}{}
+\@ifundefined{proposition}{\newtheorem{proposition}[theorem]{Proposition}}{}
+\@ifundefined{corollary}{\newtheorem*{corollary}{Corollary}}{}
 
 \theoremstyle{definition}
-\ifcsmacro{definition}{}{\newtheorem{definition}[theorem]{Definition}}
-\ifcsmacro{problem}{}{\newtheorem{problem}{문제}}
+\@ifundefined{definition}{\newtheorem{definition}[theorem]{Definition}}{}
+\@ifundefined{problem}{\newtheorem{problem}{문제}}{}
 
 \theoremstyle{remark}
-\ifcsmacro{remark}{}{\newtheorem*{remark}{Remark}}
+\@ifundefined{remark}{\newtheorem*{remark}{Remark}}{}
 
 \usetikzlibrary{cd, calc}
 
@@ -49,7 +49,7 @@
 \setminted{autogobble, breaklines, breakanywhere}
 % https://github.com/gpoore/minted/issues/311
 % todo: get breakaftersymbolpre to work
-\newcommand{\codeinline}[1]{\Verb[breaklines, breakanywhere]{#1}}
+\providecommand{\codeinline}[1]{\Verb[breaklines, breakanywhere]{#1}}
 \usepackage{hyperref}
 
 % Tabularray Settings
@@ -68,10 +68,10 @@
 }
 
 % Common Macros
-\providecommand*{\ZZ}{\ensuremath{\mathbb{Z}}}
-\providecommand*{\QQ}{\ensuremath{\mathbb{Q}}}
-\providecommand*{\RR}{\ensuremath{\mathbb{R}}}
-\providecommand*{\CC}{\ensuremath{\mathbb{C}}}
+\providecommand{\ZZ}{\ensuremath{\mathbb{Z}}}
+\providecommand{\QQ}{\ensuremath{\mathbb{Q}}}
+\providecommand{\RR}{\ensuremath{\mathbb{R}}}
+\providecommand{\CC}{\ensuremath{\mathbb{C}}}
 
 \DeclarePairedDelimiter\abs{\lvert}{\rvert}
 \DeclarePairedDelimiter\norm{\lVert}{\rVert}
