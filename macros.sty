@@ -6,13 +6,19 @@
 \newif\if@thmchap
 \@thmchapfalse
 \DeclareOption{chapter}{\@thmchaptrue}
-\DeclareOption*{\PackageWarning{macros}{Unknown ‘\CurrentOption’}}
+\DeclareOption*{\PackageWarning{macros}{Unknown Option: \CurrentOption}}
 \ProcessOptions\relax
+
+\usepackage{kotex}
 
 % Engine Specific includes
 \usepackage{iftex}
 \ifluatex
     \usepackage{luacode}
+    \usepackage{fontspec}
+\fi
+\ifxetex 
+    \usepackage{fontspec}
 \fi
 
 % Math Packages
