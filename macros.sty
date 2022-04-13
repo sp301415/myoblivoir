@@ -13,7 +13,6 @@
 \usepackage{iftex}
 \ifluatex
     \usepackage{luacode}
-    \hangulpunctuations=0
 \fi
 
 % Math Packages
@@ -21,21 +20,23 @@
 \pgfplotsset{compat=newest}
 \allowdisplaybreaks{}
 
+\ifcsmacro{theorem}{}{
 \if@thmchap 
     \newtheorem{theorem}{Theorem}[chapter] 
-\else 
+\else
     \newtheorem{theorem}{Theorem} 
 \fi
-\newtheorem{lemma}[theorem]{Lemma}
-\newtheorem{proposition}[theorem]{Proposition}
-\newtheorem*{corollary}{Corollary}
+}
+\ifcsmacro{lemma}{}{\newtheorem{lemma}[theorem]{Lemma}}
+\ifcsmacro{proposition}{}{\newtheorem{proposition}[theorem]{Proposition}}
+\ifcsmacro{corollary}{}{\newtheorem*{corollary}{Corollary}}
 
 \theoremstyle{definition}
-\newtheorem{definition}[theorem]{Definition}
-\newtheorem{problem}{문제}
+\ifcsmacro{definition}{}{\newtheorem{definition}[theorem]{Definition}}
+\ifcsmacro{problem}{}{\newtheorem{problem}{문제}}
 
 \theoremstyle{remark}
-\newtheorem*{remark}{Remark}
+\ifcsmacro{remark}{}{\newtheorem*{remark}{Remark}}
 
 \usetikzlibrary{cd, calc}
 
@@ -67,10 +68,10 @@
 }
 
 % Common Macros
-\newcommand{\ZZ}{\ensuremath{\mathbb{Z}}}
-\newcommand{\QQ}{\ensuremath{\mathbb{Q}}}
-\newcommand{\RR}{\ensuremath{\mathbb{R}}}
-\newcommand{\CC}{\ensuremath{\mathbb{C}}}
+\providecommand*{\ZZ}{\ensuremath{\mathbb{Z}}}
+\providecommand*{\QQ}{\ensuremath{\mathbb{Q}}}
+\providecommand*{\RR}{\ensuremath{\mathbb{R}}}
+\providecommand*{\CC}{\ensuremath{\mathbb{C}}}
 
 \DeclarePairedDelimiter\abs{\lvert}{\rvert}
 \DeclarePairedDelimiter\norm{\lVert}{\rVert}

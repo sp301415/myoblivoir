@@ -10,6 +10,11 @@
 \usepackage{fapapersize}
 \usefapapersize{*,*,30mm,30mm,30mm,30mm}
 
+\usepackage{iftex}
+\ifluatex
+\hangulpunctuations=0
+\fi
+
 \@ifclasswith{oblivoir}{chapter}{
     \usepackage[chapter]{macros}
 }{
