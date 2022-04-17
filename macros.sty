@@ -6,10 +6,13 @@
 \newif\if@thmchap
 \@thmchapfalse
 \DeclareOption{chapter}{\@thmchaptrue}
+
+\newif\if@kotex
+\@kotexfalse
+\DeclareOption{kotex}{\@kotextrue}
+
 \DeclareOption*{\PackageWarning{macros}{Unknown Option: \CurrentOption}}
 \ProcessOptions\relax
-
-\usepackage{kotex}
 
 % Engine Specific includes
 \usepackage{iftex}
@@ -19,6 +22,14 @@
 \fi
 \ifxetex 
     \usepackage{fontspec}
+\fi
+
+% KoTeX
+\if@kotex
+    \usepackage[hangul, nonfrench, finemath]{kotex}
+    \ifpdftex
+        \input glyphtounicode \pdfgentounicode=1
+    \fi
 \fi
 
 % Math Packages
@@ -56,7 +67,7 @@
 % https://github.com/gpoore/minted/issues/311
 % TODO: get breakaftersymbolpre to work
 \providecommand*{\codeinline}[1]{\Verb[breaklines, breakanywhere]{#1}}
-\usepackage{hyperref}
+\@ifpackageloaded{hyperref}{}{\usepackage[pdfencoding=auto]{hyperref}}
 
 % Tabularray Settings
 \usepackage{tabularray, caption}
