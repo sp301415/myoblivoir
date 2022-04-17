@@ -3,7 +3,7 @@
 
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{oblivoir}}
 \ProcessOptions\relax
-\LoadClass[11pt, a4paper]{oblivoir}
+\LoadClass[11pt, a4paper, footnote, nonfrench, finemath]{oblivoir}
 
 \makeatletter
 
@@ -16,9 +16,9 @@
 \fi
 
 \@ifclasswith{oblivoir}{chapter}{
-    \usepackage[chapter]{macros}
+    \usepackage[chapter]{mypreamble}
 }{
-    \usepackage{macros}
+    \usepackage{mypreamble}
 }
 
 \makeatother

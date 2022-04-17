@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{macros}[2022/04/13 My Frequently Used Macros]
+\ProvidesPackage{mypreamble}[2022/04/13 My Frequently Used Preamble]
 
 \makeatletter
 
@@ -10,6 +10,10 @@
 \newif\if@kotex
 \@kotexfalse
 \DeclareOption{kotex}{\@kotextrue}
+\DeclareOption{hangul}{
+    \@kotextrue
+    \PassOptionsToPackage{hangul, nonfrench, finemath}{kotex}
+}
 
 \DeclareOption*{\PackageWarning{macros}{Unknown Option: \CurrentOption}}
 \ProcessOptions\relax
@@ -26,7 +30,7 @@
 
 % KoTeX
 \if@kotex
-    \usepackage[hangul, nonfrench, finemath]{kotex}
+    \usepackage{kotex}
     \ifpdftex
         \input glyphtounicode \pdfgentounicode=1
     \fi
