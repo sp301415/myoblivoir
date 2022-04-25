@@ -5,8 +5,6 @@
 \ProcessOptions\relax
 \LoadClass[11pt, a4paper, footnote, nonfrench, finemath]{oblivoir}
 
-\makeatletter
-
 \usepackage{fapapersize}
 \usefapapersize{*,*,30mm,30mm,30mm,30mm}
 
@@ -14,11 +12,3 @@
 \ifluatex
     \hangulpunctuations=0
 \fi
-
-\@ifclasswith{oblivoir}{chapter}{
-    \usepackage[chapter]{mypreamble}
-}{
-    \usepackage{mypreamble}
-}
-
-\makeatother

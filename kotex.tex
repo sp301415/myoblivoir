@@ -1,0 +1,8 @@
+\usepackage[hangul, nonfrench, finemath]{kotex}
+\kscntformat{section}{}{}
+
+\usepackage{iftex}
+\ifpdftex
+    \input glyphtounicode
+    \pdfgentounicode=1
+\fi

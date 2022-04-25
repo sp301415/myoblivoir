@@ -1,22 +1,4 @@
-\NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{mypreamble}[2022/04/13 My Frequently Used Preamble]
-
 \makeatletter
-
-\newif\if@thmchap
-\@thmchapfalse
-\DeclareOption{chapter}{\@thmchaptrue}
-
-\newif\if@kotex
-\@kotexfalse
-\DeclareOption{kotex}{\@kotextrue}
-\DeclareOption{hangul}{
-    \@kotextrue
-    \PassOptionsToPackage{hangul, nonfrench, finemath}{kotex}
-}
-
-\DeclareOption*{\PackageWarning{macros}{Unknown Option: \CurrentOption}}
-\ProcessOptions\relax
 
 % Engine Specific includes
 \usepackage{iftex}
@@ -24,16 +6,8 @@
     \usepackage{luacode}
     \usepackage{fontspec}
 \fi
-\ifxetex 
+\ifxetex
     \usepackage{fontspec}
-\fi
-
-% KoTeX
-\if@kotex
-    \usepackage{kotex}
-    \ifpdftex
-        \input glyphtounicode \pdfgentounicode=1
-    \fi
 \fi
 
 % Math Packages
@@ -43,13 +17,7 @@
 \allowdisplaybreaks{}
 
 % Theorem Styles
-\@ifundefined{theorem}{
-\if@thmchap 
-    \newtheorem{theorem}{Theorem}[chapter] 
-\else
-    \newtheorem{theorem}{Theorem} 
-\fi
-}{}
+\@ifundefined{theorem}{\newtheorem{theorem}{Theorem}}{}
 \@ifundefined{lemma}{\newtheorem{lemma}[theorem]{Lemma}}{}
 \@ifundefined{proposition}{\newtheorem{proposition}[theorem]{Proposition}}{}
 \@ifundefined{corollary}{\newtheorem*{corollary}{Corollary}}{}
@@ -101,9 +69,9 @@
 % Swap * and non-* version of PairedDelimiter
 \let\oldabs\abs
 \def\abs{\@ifstar{\oldabs}{\oldabs*}}
-\let\oldnorm\norm 
+\let\oldnorm\norm
 \def\norm{\@ifstar{\oldnorm}{\oldnorm*}}
-\let\oldbraket\braket 
+\let\oldbraket\braket
 \def\norm{\@ifstar{\oldbraket}{\oldbraket*}}
 
 \makeatother
