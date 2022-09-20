@@ -12,3 +12,13 @@
 \ifluatex
     \hangulpunctuations=0
 \fi
+\PassOptionsToPackage{pdfencoding=auto}{hyperref}
+\PassOptionsToPackage{dvipsnames}{xcolor}
+
+\makechapterstyle{nokorean}{%
+    \chapterstyle{default}
+    \renewcommand{\prechapternum}{\chapnamefont Chapter}
+    \renewcommand{\postchapternum}{}
+}
+
+\usepackage{ob-mathleading, oblivoir-misc}

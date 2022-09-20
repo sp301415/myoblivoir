@@ -11,10 +11,11 @@
 \fi
 
 % Math Packages
-\usepackage{amsmath, amssymb, amsthm, mathtools, tikz, pgfplots}
+\usepackage{amsmath, amssymb, amsthm, mathtools}
+\usepackage{tikz, pgfplots}
 \usetikzlibrary{cd, calc, tikzmark}
 \pgfplotsset{compat=newest}
-\allowdisplaybreaks{}
+\usepackage{siunitx}
 
 % Theorem Styles
 \@ifundefined{theorem}{\newtheorem{theorem}{Theorem}}{}
@@ -39,7 +40,6 @@
 % https://github.com/gpoore/minted/issues/311
 % TODO: get breakaftersymbolpre to work
 \providecommand*{\codeinline}[1]{\Verb[breaklines, breakanywhere]{#1}}
-\@ifpackageloaded{hyperref}{}{\usepackage[pdfencoding=auto]{hyperref}}
 
 % Tabularray Settings
 \usepackage{tabularray, caption}
