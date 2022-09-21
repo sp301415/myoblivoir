@@ -11,10 +11,41 @@
 \usepackage{iftex}
 \ifLuaTeX
     \hangulpunctuations=0
-\fi
-\ifLuaOrXeTeX
-    \setmainhangulfont{Noto Serif CJK KR}
-    \setsanshangulfont{Noto Sans CJK KR}
+
+    % Taken from luatex-ko doc.
+    \setmainhangulfont{Noto Serif CJK KR}[
+        Scale=0.98,
+        AutoFakeSlant,
+        Script=Hangul,
+        Language=Korean,
+        BoldFont=* Bold,
+        Expansion,
+    ]
+    \setsanshangulfont{Noto Sans CJK KR}[
+        Scale=0.98,
+        AutoFakeSlant,
+        Script=Hangul,
+        Language=Korean,
+        BoldFont=* Bold,
+        Expansion,
+    ]
+    \setmonohangulfont{Noto Sans Mono CJK KR}[
+        Scale=0.98,
+        AutoFakeSlant,
+        Script=Hangul,
+        Language=Korean,
+        BoldFont=* Bold,
+        Expansion,
+    ]
+    \setmathhangulfont{Noto Sans CJK KR}[
+        Script=Hangul,
+        Language=Korean,
+        SizeFeatures={
+            {Size=-6,  Font=* Medium},
+            {Size=6-9, Font=* Regular},
+            {Size=9-,  Font=* DemiLight},
+        },
+    ]
 \fi
 
 \PassOptionsToPackage{pdfencoding=auto}{hyperref}
