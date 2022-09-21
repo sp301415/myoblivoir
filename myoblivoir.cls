@@ -9,9 +9,14 @@
 \usefapapersize{*,*,30mm,30mm,30mm,30mm}
 
 \usepackage{iftex}
-\ifluatex
+\ifLuaTeX
     \hangulpunctuations=0
 \fi
+\ifLuaOrXeTeX
+    \setmainhangulfont{Noto Serif CJK KR}
+    \setsanshangulfont{Noto Sans CJK KR}
+\fi
+
 \PassOptionsToPackage{pdfencoding=auto}{hyperref}
 \PassOptionsToPackage{dvipsnames}{xcolor}
 
