@@ -2,11 +2,12 @@
 
 % Engine Specific includes
 \usepackage{iftex}
-\ifLuaOrXeTeX
+\ifXeTeX
     \usepackage{fontspec}
 \fi
-\ifXeTeX
+\ifLuaTeX
     \usepackage{luacode}
+    \usepackage{fontspec}
 \fi
 
 % Math Packages
