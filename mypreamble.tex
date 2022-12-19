@@ -37,9 +37,8 @@
 \usepackage[shortlabels]{enumitem}
 \usepackage[cache=false]{minted}
 \setminted{autogobble, breaklines, breakanywhere}
-% https://github.com/gpoore/minted/issues/311
 % TODO: get breakaftersymbolpre to work
-\providecommand*{\codeinline}[1]{\Verb[breaklines, breakanywhere]{#1}}
+\providecommand*{\codeinline}[1]{\mintinline[breaklines, breakanywhere, breakaftersymbolpre={}]{text}{#1}}
 
 % Tabularray Settings
 \usepackage{tabularray, caption}
