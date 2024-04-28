@@ -64,13 +64,3 @@
 \DeclarePairedDelimiter\abs{\lvert}{\rvert}
 \DeclarePairedDelimiter\norm{\lVert}{\rVert}
 \DeclarePairedDelimiter\braket{\langle}{\rangle}
-
-% Swap * and non-* version of PairedDelimiter
-\let\oldabs\abs
-\def\abs{\@ifstar{\oldabs}{\oldabs*}}
-\let\oldnorm\norm
-\def\norm{\@ifstar{\oldnorm}{\oldnorm*}}
-\let\oldbraket\braket
-\def\norm{\@ifstar{\oldbraket}{\oldbraket*}}
-
-\makeatother
