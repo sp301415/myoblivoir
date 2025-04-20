@@ -3,7 +3,7 @@
 
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{oblivoir}}
 \ProcessOptions\relax
-\LoadClass[a4paper,footnote,finemath]{oblivoir}
+\LoadClass[a4paper, footnote, finemath]{oblivoir}
 
 \usepackage{fapapersize}
 \usefapapersize{*,*,30mm,30mm,30mm,30mm}
