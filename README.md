@@ -14,13 +14,13 @@ Put this folder under `$(kpsewhich -var-value=TEXMFHOME)/tex/latex/`.
 \documentclass{myoblivoir}
 ```
 
-Loads `oblivoir` class with `a4paper, footnote, nonfrench, finemath` option, and sets the paper margin to 30mm. You can pass other valid `oblivoir` options, too.
+Loads `oblivoir` class with `a4paper, footnote, finemath` option, and sets the paper margin to 30mm. You can pass other valid `oblivoir` options, too.
 
 ## mypreamble
 
 ```latex
 \input{mypreamble.tex}
-\input{kotex.tex} % Optional, Loads kotex package with nonfrench, finemath and hangul option
+\input{kotex.tex} % Optional, Loads kotex package with finemath and hangul option
 \input{thmchap.tex} % Optional, Changes the counter of theorem environment to chapter.counter
 ```
 

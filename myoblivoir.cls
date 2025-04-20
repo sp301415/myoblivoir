@@ -3,7 +3,7 @@
 
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{oblivoir}}
 \ProcessOptions\relax
-\LoadClass[a4paper, footnote, nonfrench, finemath]{oblivoir}
+\LoadClass[a4paper,footnote,finemath]{oblivoir}
 
 \usepackage{fapapersize}
 \usefapapersize{*,*,30mm,30mm,30mm,30mm}
@@ -41,10 +41,10 @@
         Script=Hangul,
         Language=Korean,
         SizeFeatures={
-            {Size=-6,  Font=* Medium},
-            {Size=6-9, Font=* Regular},
-            {Size=9-,  Font=* DemiLight},
-        },
+                {Size=-6,  Font=* Medium},
+                {Size=6-9, Font=* Regular},
+                {Size=9-,  Font=* DemiLight},
+            },
     ]
 \fi
 
