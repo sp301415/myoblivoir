@@ -3,38 +3,36 @@
 
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{oblivoir}}
 \ProcessOptions\relax
-\LoadClass[a4paper, footnote, finemath]{oblivoir}
+\LoadClass[a4paper, footnote, finemath, microtype]{oblivoir}
 
 \usepackage{fapapersize}
 \usefapapersize{*,*,30mm,30mm,30mm,30mm}
 
 \usepackage{iftex}
 \ifLuaTeX
-	\hangulpunctuations=0
-
 	% Taken from luatex-ko doc.
 	\setmainhangulfont{Noto Serif CJK KR}[
-		Scale=0.98,
 		AutoFakeSlant,
 		Script=Hangul,
 		Language=Korean,
 		BoldFont=* Bold,
+		Protrusion,
 		Expansion,
 	]
 	\setsanshangulfont{Noto Sans CJK KR}[
-		Scale=0.98,
 		AutoFakeSlant,
 		Script=Hangul,
 		Language=Korean,
 		BoldFont=* Bold,
+		Protrusion,
 		Expansion,
 	]
 	\setmonohangulfont{Noto Sans Mono CJK KR}[
-		Scale=0.98,
 		AutoFakeSlant,
 		Script=Hangul,
 		Language=Korean,
 		BoldFont=* Bold,
+		Protrusion,
 		Expansion,
 	]
 	\setmathhangulfont{Noto Sans CJK KR}[

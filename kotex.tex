@@ -1,4 +1,4 @@
-\usepackage[finemath, hangul]{kotex}
+\usepackage[hangul]{kotex}
 
 \usepackage{iftex}
 \ifPDFTeX
@@ -7,31 +7,29 @@
 \fi
 
 \ifLuaTeX
-	\hangulpunctuations=0
-
 	% Taken from luatex-ko doc.
 	\setmainhangulfont{Noto Serif CJK KR}[
-		Scale=0.98,
 		AutoFakeSlant,
 		Script=Hangul,
 		Language=Korean,
 		BoldFont=* Bold,
+		Protrusion,
 		Expansion,
 	]
 	\setsanshangulfont{Noto Sans CJK KR}[
-		Scale=0.98,
 		AutoFakeSlant,
 		Script=Hangul,
 		Language=Korean,
 		BoldFont=* Bold,
+		Protrusion,
 		Expansion,
 	]
 	\setmonohangulfont{Noto Sans Mono CJK KR}[
-		Scale=0.98,
 		AutoFakeSlant,
 		Script=Hangul,
 		Language=Korean,
 		BoldFont=* Bold,
+		Protrusion,
 		Expansion,
 	]
 	\setmathhangulfont{Noto Sans CJK KR}[
