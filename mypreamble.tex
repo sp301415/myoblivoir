@@ -3,11 +3,11 @@
 % Engine Specific includes
 \usepackage{iftex}
 \ifXeTeX
-    \usepackage{fontspec}
+	\usepackage{fontspec}
 \fi
 \ifLuaTeX
-    \usepackage{luacode}
-    \usepackage{fontspec}
+	\usepackage{luacode}
+	\usepackage{fontspec}
 \fi
 
 % Math Packages
@@ -35,6 +35,7 @@
 \usepackage{graphicx}
 
 % Misc Packages
+\usepackage{microtype}
 \usepackage[shortlabels]{enumitem}
 \usepackage[cache=false]{minted}
 \setminted{autogobble, breaklines, breakanywhere}
@@ -51,8 +52,8 @@
 % TODO: is making this a theme good idea?
 \NewTblrTheme{nocaption}{\SetTblrTemplate{head}{empty}}
 \NewTblrTheme{nocounter}{
-    \SetTblrTemplate{caption-tag}{empty}
-    \SetTblrTemplate{caption-sep}{empty}
+	\SetTblrTemplate{caption-tag}{empty}
+	\SetTblrTemplate{caption-sep}{empty}
 }
 
 % Common Macros
