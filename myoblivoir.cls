@@ -44,6 +44,7 @@
 				{Size=9-,  Font=* DemiLight},
 			},
 	]
+	\compressbnms
 \fi
 
 \PassOptionsToPackage{pdfencoding=auto}{hyperref}
