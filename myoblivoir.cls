@@ -11,6 +11,8 @@
 \usepackage{iftex}
 \ifLuaTeX
 % Taken from luatex-ko doc.
+\ifnokorean
+\else
 \setmainhangulfont{Noto Serif CJK KR}[
   AutoFakeSlant,
   Script=Hangul,
@@ -45,6 +47,7 @@
   },
 ]
 \compressbnms
+\fi
 \fi
 
 \PassOptionsToPackage{pdfencoding=auto}{hyperref}
